@@ -1,0 +1,4 @@
+.git
+.gitignore
+file.txt
+Lesson_2
