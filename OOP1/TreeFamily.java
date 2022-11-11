@@ -3,10 +3,10 @@ package OOP1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TreeFamily implements ItreeFamily {
-    private People headData;
+public class TreeFamily<T extends People> implements ItreeFamily<T> {
+    private T headData;
     private int count;
-    private List<People> listPeople;
+    private List<T> listPeople;
 
     public TreeFamily() {
         this.count = 0;
@@ -15,7 +15,7 @@ public class TreeFamily implements ItreeFamily {
     
 
     @Override
-    public void wedding(People p1, People p2) {
+    public void wedding(T p1, T p2) {
         if(isCurrentFamily(p1, p2)){
             Men men = getMenType(p1);
             Women women = getWomenType(p2);
@@ -31,7 +31,7 @@ public class TreeFamily implements ItreeFamily {
     }
 
     @Override
-    public void funeral(People p) {
+    public void funeral(T p) {
         p.death();
         for (int i = 0; i < listPeople.size(); i++) {
             if (listPeople.get(i).getId() == p.getId()){
@@ -42,7 +42,7 @@ public class TreeFamily implements ItreeFamily {
     }
 
     @Override
-    public void makeChildren(People father, People mother, String nameW, String nameM) {
+    public void makeChildren(T father, T mother, String nameW, String nameM) {
         if (isCurrentFamily(father, mother)){
             Women women;
             if (mother instanceof Women){
@@ -53,7 +53,7 @@ public class TreeFamily implements ItreeFamily {
     }
 
     @Override
-    public void add(People p1) {
+    public void add(T p1) {
         if (!listPeople.contains(p1)){
             if (headData == null && p1 != null){
                 headData = p1;
@@ -85,7 +85,7 @@ public class TreeFamily implements ItreeFamily {
     }
 
     @Override
-    public People getHeadData() {
+    public T getHeadData() {
         return headData;
     }
 
@@ -95,7 +95,7 @@ public class TreeFamily implements ItreeFamily {
     }
 
     @Override
-    public List<People> getListPeople() {
+    public List<T> getListPeople() {
         return listPeople;
     }
 

@@ -5,7 +5,7 @@ package OOP1;
  */
 public class Start {
     public static void main(String[] args) {
-        TreeFamily treeFamily = new TreeFamily();
+        TreeFamily<People> treeFamily = new TreeFamily<>();
         treeFamily.add(new Men("Василий", "Пупкин", null, null));
         Women women = new Women("Оля", "НеПупкина", null, null);
         treeFamily.wedding(treeFamily.getListPeople().get(0), women);

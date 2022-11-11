@@ -2,13 +2,13 @@ package OOP1;
 
 import java.util.List;
 
-public interface ItreeFamily {
-    void wedding(People p1, People p2);
-    void funeral(People p);
-    void makeChildren(People father, People mother, String nameW, String nameM);
-    void add(People p1);
-    People getHeadData();
+public interface ItreeFamily<T extends People> {
+    public void wedding(T p1, T p2);
+    public void funeral(T p);
+    public void makeChildren(T father, T mother, String nameW, String nameM);
+    public void add(T p1);
+    public T getHeadData();
     public int getCount();
-    public List<People> getListPeople();
+    public List<T> getListPeople();
     public void growChild(Child ch);
 }
