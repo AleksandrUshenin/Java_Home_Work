@@ -3,6 +3,7 @@ package OOP1;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class TreeFamily<T extends People> implements ItreeFamily<T> {
     private T headData;
     private int count;
@@ -23,10 +24,11 @@ public class TreeFamily<T extends People> implements ItreeFamily<T> {
                 men = getMenType(p2);
                 women = getWomenType(p1);
             }
-            men.setWife(women);
-            women.setHusband(men);
-            add(p1);
-            add(p2);
+            if(men.setWife(women) && women.setHusband(men))
+            {
+                add(p1);
+                add(p2);
+            }
         }
     }
 
@@ -43,6 +45,11 @@ public class TreeFamily<T extends People> implements ItreeFamily<T> {
 
     @Override
     public void makeChildren(T father, T mother, String nameW, String nameM) {
+        if (!(father instanceof Men) || !(mother instanceof Women))
+            return;
+
+        if (((Men)father).getWife() != null && ((Men)father).getWife().getId() != mother.getId())
+            return;
         if (isCurrentFamily(father, mother)){
             Women women;
             if (mother instanceof Women){
@@ -100,8 +107,13 @@ public class TreeFamily<T extends People> implements ItreeFamily<T> {
     }
 
     @Override
-    public void growChild(Child ch){
-        listPeople.add(ch.grow());
+    public void growChild(T ch){
+        //listPeople.add(ch.grow());
+        if (ch instanceof Child)
+        {
+            var s = ((Child)ch).grow();
+            listPeople.add((T)s);
+        }
     }
 
 }

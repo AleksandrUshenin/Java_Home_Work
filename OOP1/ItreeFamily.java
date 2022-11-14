@@ -10,5 +10,5 @@ public interface ItreeFamily<T extends People> {
     public T getHeadData();
     public int getCount();
     public List<T> getListPeople();
-    public void growChild(Child ch);
+    public void growChild(T ch);
 }
