@@ -3,7 +3,6 @@ package OOP1;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.crypto.spec.OAEPParameterSpec;
 
 public abstract class People {
     private static int idStatic = 1;
@@ -72,7 +71,7 @@ public abstract class People {
     public void addCildren(People cildren) {
         if (childrens.size() > 0){
             for (int i = 0; i < childrens.size(); i++) {
-                childrens.get(i).addBrother(cildren);
+                //childrens.get(i).addBrother(cildren);
             }
         }
         this.childrens.add(cildren);

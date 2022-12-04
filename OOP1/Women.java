@@ -16,10 +16,12 @@ public class Women extends People implements IWomen {
         return husband;
     }
 
-    public void setHusband(Men husband) {
+    public boolean setHusband(Men husband) {
         if (this.husband == null){
             this.husband = husband;
+            return true;
         }
+        return false;
     }
     @Override
     public void makePeople(String nameW, String nameM){

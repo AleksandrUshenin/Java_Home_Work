@@ -15,10 +15,12 @@ public class Men extends People {
         return wife;
     }
 
-    public void setWife(Women wife) {
+    public boolean setWife(Women wife) {
         if (this.wife == null){
             this.wife = wife;
+            return true;
         }
+        return false;
     }
     @Override
     public void death() {
